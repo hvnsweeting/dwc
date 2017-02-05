@@ -3,6 +3,5 @@ machine:
     - pyenv global 3.5.2
 
 test:
-  override:
+  pre:
     - mkdir -p $CIRCLE_TEST_REPORTS/reports
-    - pytest --junit-xml $CIRCLE_TEST_REPORTS/reports/result.xml
