@@ -9,6 +9,7 @@ setup(
     description='wc clone in Python, plus support directory as arguments',
     author='Viet Hung Nguyen',
     author_email='hvn@familug.org',
+    py_modules=['wcld'],
     url='https://github.com/hvnsweeting/wcld',
     entry_points='''[console_scripts]
         wcld=wcld:cli
