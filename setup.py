@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='wcld',
-    version='0.0.2',
+    version='0.0.3',
     description='wc clone in Python, plus support directory as arguments',
     author='Viet Hung Nguyen',
     author_email='hvn@familug.org',
