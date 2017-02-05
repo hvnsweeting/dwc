@@ -1,4 +1,6 @@
 # wcld
+[![CircleCI](https://circleci.com/gh/hvnsweeting/wcld.svg?style=svg)](https://circleci.com/gh/hvnsweeting/wcld)
+
 wc -l clone in Python, plus support directory as argument
 
 # install
