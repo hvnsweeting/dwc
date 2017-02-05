@@ -41,7 +41,7 @@ def count_lines(directory, ext=None, exclude=None, exfuncs=None, detail=False):
                 for line in fi:
                     c += 1
             if detail:
-                print("%5d: %s" % (c, path))
+                print("%7d: %s" % (c, path))
 
             total_lines += c
     return total_lines
@@ -63,4 +63,4 @@ def cli():
     for d in args.directory:
         total_lines = count_lines(d, args.filetype, args.exclude,
                                   detail=args.debug, exfuncs=ignore_git)
-        print('%5d: %s' % (total_lines, d))
+        print('%7d: %s' % (total_lines, d))
