@@ -63,6 +63,10 @@ $ wcld github.com/influxdata/kapacitor -t go --exclude '*.pb.go, *_test.go, */ve
   46407: github.com/influxdata/kapacitor
 ```
 
+# Use case
+Are you writing micro services?  If each service implementation contains more
+than 3000 lines of code, is that still micro service anyway?
+
 # Author
 
 hvn@familug.org
