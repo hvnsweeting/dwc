@@ -1,4 +1,4 @@
-# wlcd
+# wcld
 wc -l clone in Python, plus support directory as argument
 
 # install
