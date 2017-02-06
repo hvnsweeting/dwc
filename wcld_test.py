@@ -1,5 +1,5 @@
-import wcld
+import dwc
 
 
 def test_current_dir():
-    assert wcld.count_lines('.', 'py', detail=True) > 0
+    assert dwc.count_lines('.', 'py', detail=True) > 0

@@ -4,14 +4,14 @@
 from setuptools import setup
 
 setup(
-    name='wcld',
+    name='dwc',
     version='0.0.3',
     description='wc clone in Python, plus support directory as arguments',
     author='Viet Hung Nguyen',
     author_email='hvn@familug.org',
-    py_modules=['wcld'],
-    url='https://github.com/hvnsweeting/wcld',
+    py_modules=['dwc'],
+    url='https://github.com/hvnsweeting/dwc',
     entry_points='''[console_scripts]
-        wcld=wcld:cli
+        dwc=dwc:cli
     '''
 )
