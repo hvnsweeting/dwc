@@ -65,6 +65,25 @@ $ dwc github.com/influxdata/kapacitor -t go --exclude '*.pb.go, *_test.go, */ven
   46407: github.com/influxdata/kapacitor
 ```
 
+Find out shortest implementations of [Make a LISP](https://github.com/kanaka/mal)
+
+```
+$ dwc mal/*/ | sort -n | head
+    494: mal/examples/
+    846: mal/docs/
+   1268: mal/mal/
+   1464: mal/perl6/
+   1483: mal/coffee/
+   1509: mal/io/
+   1534: mal/racket/
+   1571: mal/ocaml/
+   1579: mal/es6/
+   1621: mal/factor/
+```
+
+So `mal` is the best, then `perl6` and `coffee` in term of shortest
+implementations.
+
 # Use case
 Are you writing micro services?  If each service implementation contains more
 than 3000 lines of code, is that still micro service anyway?
