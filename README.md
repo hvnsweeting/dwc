@@ -65,7 +65,7 @@ $ dwc github.com/influxdata/kapacitor -t go --exclude '*.pb.go, *_test.go, */ven
   46407: github.com/influxdata/kapacitor
 ```
 
-Find out shortest implementations of [Make a LISP](https://github.com/kanaka/mal)
+Find out the shortest implementations of [Make a LISP](https://github.com/kanaka/mal)
 
 ```
 $ dwc mal/*/ | sort -n | head
