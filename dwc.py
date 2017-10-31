@@ -11,15 +11,16 @@ def matched_exclude(fn, patterns):
     return False
 
 
-def count_lines(directory, ext=None, exclude=None, exfuncs=None, detail=False):
+def count_lines(directory, ext=None,
+                exclude_patterns=None, exfuncs=None, detail=False):
     '''Count lines in each file inside directory
 
     ext: file extension to count
-    exclude: comma separated patterns to ignore
-    exfuncs: additional functions to exclude files from result
+    exclude_patterns: comma separated patterns to ignore
+    exfuncs: additional functions to exclude_patterns files from result
     '''
-    if exclude is None:
-        exclude = '.swp'
+    if not exclude_patterns:
+        exclude_patterns = '*.swp'
     if exfuncs is None:
         exfuncs = []
 
@@ -27,19 +28,26 @@ def count_lines(directory, ext=None, exclude=None, exfuncs=None, detail=False):
         ext = '.' + ext
         exfuncs.append(lambda fn: not fn.endswith(ext))
 
-    exfuncs.append(lambda fn: matched_exclude(fn, exclude))
-
     total_lines = 0
     for root, _, files in os.walk(directory):
         for f in files:
             c = 0
+
             path = os.path.join(root, f)
+            if matched_exclude(path, exclude_patterns):
+                continue
+
             if any(func(path) for func in exfuncs):
                 continue
 
-            with open(path) as fi:
-                for line in fi:
-                    c += 1
+            try:
+                with open(path) as fi:
+                    for line in fi:
+                        c += 1
+            except UnicodeDecodeError as e:
+                # pyc files, binary files...
+                continue
+
             if detail:
                 print("%7d: %s" % (c, path))
 
@@ -54,13 +62,13 @@ def cli():
     argp.add_argument('-t', '--filetype', type=str, default='')
     argp.add_argument('-d', '--debug', action='store_true')
     argp.add_argument(
-        '-e', '--exclude', type=str, default='',
-        help='exclude: comma separated patterns to ignore'
+        '-e', '--exclude_patterns', type=str, default='',
+        help='exclude_patterns: comma separated patterns to ignore'
     )
 
     args = argp.parse_args()
     ignore_git = [lambda f: '.git/' in f]
     for d in args.directory:
-        total_lines = count_lines(d, args.filetype, args.exclude,
+        total_lines = count_lines(d, args.filetype, args.exclude_patterns,
                                   detail=args.debug, exfuncs=ignore_git)
         print('%7d: %s' % (total_lines, d))
