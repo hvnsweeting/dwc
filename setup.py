@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='dwc',
-    version='0.0.3',
+    version='0.0.4',
     description='wc clone in Python, plus support directory as arguments',
     author='Viet Hung Nguyen',
     author_email='hvn@familug.org',
